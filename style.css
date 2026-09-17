@@ -4,7 +4,7 @@
   which url fragment (a link starting with #)
   that is currently chosen
 
-  This allows on html file to contain different
+  This allows one html file to contain different
   "pages" seen from the standpoint of the user
 */
 main {
@@ -35,7 +35,7 @@ main {
 body {
   /* Default is 20px from all sides
      but since we want the color of headers
-     and footer to reach the to the corners
+     and footer to reach to the corners
      we set the margin to 0 */
   margin: 0;
   font-family: Verdana;
@@ -60,7 +60,7 @@ header {
 
 main {
   /* 
-     For small windows:display: display:
+     For small windows:
      100% - 80px and centered using margin: 0 auto
      -> 40px on each side 
      For large/wide windows:
@@ -82,7 +82,7 @@ img {
   width: 100%;
   /* Set an aspect ratio */
   aspect-ratio: 16 / 9;
-  /* To aovid aspect-ratio distorting the image
+  /* To avoid aspect-ratio distorting the image
      rather crop the image instead */
   object-fit: cover;
 }
