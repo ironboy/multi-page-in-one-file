@@ -1,0 +1,102 @@
+/* 
+  The logic that hides/shows articles in the 
+  main element of the page depending on 
+  which url fragment (a link starting with #)
+  that is currently chosen
+
+  This allows on html file to contain different
+  "pages" seen from the standpoint of the user
+*/
+main {
+
+  /* Hide all articles inside main */
+  article {
+    /* display: none - do not display/show */
+    display: none;
+  }
+
+  /* Show the article whose id matches the
+     hashtag in the link using :target */
+  article:target {
+    display: block;
+  }
+
+  /* 
+    & = me -> main
+    "om jag, main, inte har någon article
+     som är target visa då artikeln som har id (#) start */
+  &:not(:has(article:target)) article#start {
+    display: block;
+  }
+}
+
+/* Main styling of body, header, main, footer */
+
+body {
+  /* Default is 20px from all sides
+     but since we want the color of headers
+     and footer to reach the to the corners
+     we set the margin to 0 */
+  margin: 0;
+  font-family: Verdana;
+}
+
+header {
+  padding: 20px;
+  background-color: rgb(6, 18, 113);
+
+  h1 {
+    color: white;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    padding-right: 10px;
+  }
+}
+
+main {
+  /* 
+     For small windows:display: display:
+     100% - 80px and centered using margin: 0 auto
+     -> 40px on each side 
+     For large/wide windows:
+     -> Never wider than 700px   
+  */
+  width: min(100% - 80px, 700px);
+  /* this centers something horizontally */
+  margin: 0 auto;
+}
+
+footer {
+  background-color: rgb(244, 243, 245);
+  padding: 20px;
+  text-align: center;
+}
+
+img {
+  /* Set images to 100% width of their parent element */
+  width: 100%;
+  /* Set an aspect ratio */
+  aspect-ratio: 16 / 9;
+  /* To aovid aspect-ratio distorting the image
+     rather crop the image instead */
+  object-fit: cover;
+}
+
+/* Sticky footer solution
+   - if the page content is shorter than the viewport
+     make the footer jump to the bottom
+     otherwise: Show the footer after you have scrolled down */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
