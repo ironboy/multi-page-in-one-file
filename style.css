@@ -13,6 +13,11 @@ main {
   article {
     /* display: none - do not display/show */
     display: none;
+    /* Normally the browser scrolls to the target (the element
+   whose id matches the #link). Asking for a huge gap above
+   it makes that impossible, so the page stays at the top.
+   Too much does no harm, too little brings the jump back */
+    scroll-margin-top: 1000px;
   }
 
   /* Show the article whose id matches the
