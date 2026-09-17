@@ -29,9 +29,28 @@ main {
   /* 
     & = me -> main
     "om jag, main, inte har någon article
-     som är target visa då artikeln som har id (#) start */
-  &:not(:has(article:target)) article#start {
+     som är target visa då den första artikeln */
+  &:not(:has(article:target)) article:first-of-type {
     display: block;
+  }
+}
+
+/* Mark the active link in the nav
+   copy the selector for as many pages and menu items you have
+   and change the numbers.
+   "If article 1 is targeted then select menu item 1" etc
+   (nth-of-type only counts articles/links, so other
+    elements in main or nav don't shift the numbers)
+*/
+body {
+
+  &:has(article:nth-of-type(1):target) nav a:nth-of-type(1),
+  &:has(article:nth-of-type(2):target) nav a:nth-of-type(2),
+  &:has(article:nth-of-type(3):target) nav a:nth-of-type(3),
+  /* no target at all (first visit) -> first link is active */
+  &:not(:has(article:target)) nav a:nth-of-type(1) {
+    text-decoration: underline;
+    text-underline-offset: 6px;
   }
 }
 
